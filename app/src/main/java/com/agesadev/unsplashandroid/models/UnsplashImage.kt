@@ -6,8 +6,8 @@ import androidx.room.PrimaryKey
 import com.agesadev.unsplashandroid.utils.Constants.UNSPLASH_IMAGE_TABLE
 import kotlinx.serialization.Serializable
 
-@Entity(tableName = UNSPLASH_IMAGE_TABLE)
 @Serializable
+@Entity(tableName = UNSPLASH_IMAGE_TABLE)
 data class UnsplashImage(
 
     @PrimaryKey(autoGenerate = false)
