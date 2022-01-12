@@ -2,6 +2,7 @@ package com.agesadev.unsplashandroid.data.remote
 
 import android.os.Build
 import com.agesadev.unsplashandroid.BuildConfig
+import com.agesadev.unsplashandroid.models.SearchResult
 import com.agesadev.unsplashandroid.models.UnsplashImage
 import retrofit2.http.GET
 import retrofit2.http.Headers
@@ -19,9 +20,9 @@ interface UnsplashApi {
     @Headers("Authorization: Client-ID ${BuildConfig.API_KEY}")
     @GET("/search/photos")
     suspend fun searchImages(
-        @Query("page") page: Int,
+        @Query("query") query: String,
         @Query("per_page") per_page: Int
-    ): List<UnsplashImage>
+    ): SearchResult
 
 
 }
