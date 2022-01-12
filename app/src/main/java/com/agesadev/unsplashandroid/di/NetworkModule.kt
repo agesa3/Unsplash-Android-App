@@ -28,7 +28,6 @@ object NetworkModule {
             15, TimeUnit.SECONDS
         ).connectTimeout(15, TimeUnit.SECONDS).build()
     }
-
     @Provides
     @Singleton
     fun providesRetrofit(okHttpClient: OkHttpClient): Retrofit {
@@ -36,14 +35,17 @@ object NetworkModule {
         val json = Json {
             ignoreUnknownKeys = true
         }
+
         return Retrofit.Builder()
             .baseUrl(BASE_URL)
             .client(okHttpClient)
-            .addConverterFactory(Json.asConverterFactory(contentType = contentType)).build()
-
+            .addConverterFactory(json.asConverterFactory(contentType))
+            .build()
     }
 
-    fun provideUnsplashApi(retrofit: Retrofit):UnsplashApi{
+    @Provides
+    @Singleton
+    fun provideUnsplashApi(retrofit: Retrofit): UnsplashApi {
         return retrofit.create(UnsplashApi::class.java)
     }
 
