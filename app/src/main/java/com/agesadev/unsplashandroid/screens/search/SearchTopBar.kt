@@ -55,7 +55,7 @@ fun SearchWidget(
                 )
             },
             textStyle = TextStyle(
-                color = MaterialTheme.colors.topAppBarBackgroundColor
+                color = Color.White
             ),
             singleLine = true,
             leadingIcon = {
@@ -67,7 +67,7 @@ fun SearchWidget(
                     Icon(
                         imageVector = Icons.Default.Search,
                         contentDescription = "Search Icon",
-                        tint = MaterialTheme.colors.topAppBarBackgroundColor
+                        tint = Color.White
                     )
                 }
             },
